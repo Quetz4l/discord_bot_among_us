@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import sqlite3
-import config
+from config import settings
 
 TOKEN = settings['TOKEN']
 client = commands.Bot(command_prefix=settings['PREFIX'])
