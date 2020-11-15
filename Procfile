@@ -1,0 +1,1 @@
+worker: python among_us.py
