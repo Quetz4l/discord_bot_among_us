@@ -31,6 +31,14 @@ async def clear(ctx, amount = 100 ):
 
 
 
+
+@client.command()
+async def update (ctx):
+    await ctx.channel.purge(limit=1)
+    await update()
+    await ctx.channel.send('База данных была обновлена.')
+
+
 @client.command()
 async def mute (ctx):
     await ctx.channel.purge(limit = 1)
@@ -76,6 +84,7 @@ async def chek(ctx):
 @client.command()
 async def m (ctx):
     await ctx.channel.purge(limit=1)
+    await update()
     emb = discord.Embed(title='Глушилка :р', colour=discord.Color.gold())
     msg = await ctx.message.channel.send(embed = emb)
     await msg.add_reaction('🔊')
@@ -110,6 +119,9 @@ async def add_all_members():
         for member in guild.members:
             await add_new_user_to_bd(member)
 
+async def update():
+    await add_all_members()
+    conn.commit()
 
 
 
@@ -123,8 +135,7 @@ async def on_ready():
         id INT,
         permission TEXT
     )""")
-    await add_all_members()
-    conn.commit()
+    await update()
     print('Бот готов!')
 
 @client.event
