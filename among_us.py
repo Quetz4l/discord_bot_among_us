@@ -1,13 +1,8 @@
 import discord
 from discord.ext import commands
 import sqlite3
+import config
 
-settings = {
-    'TOKEN': 'Nzc0MzE4ODA2OTQzNzkzMjE0.X6WClQ.1YUyWNB_bm8B3EHNiMJR3pudxMM',
-    'NAME_BOT' : 'Оффка',
-    'ID' : 774318806943793214,
-    'PREFIX' : '!'
-}
 TOKEN = settings['TOKEN']
 client = commands.Bot(command_prefix=settings['PREFIX'])
 client.remove_command('help')
