@@ -1,1 +1,1 @@
-# discord_bor_among_us
+# discord_bot_among_us
